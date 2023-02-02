@@ -1,17 +1,13 @@
 const fs = require("fs");
 
-//creating new file 
+//difference between synchronous and  Asynchronous 
 
-fs.writeFileSync("read.txt" , "Hi niraj !");
+const data = fs.readFileSync("read.txt" , "utf-8");
+console.log(data);
 
-//if we write something in read text file then we use this module
+console.log("after the data");
+//if use asynchrounous then we err callback funt  so we use fun(err) it is run after data we first pass 
 
-fs.appendFileSync("read.txt" , "  How are you");
-
-// if we read file then we do first we declare a variable and convert to into string if we write string 
-
-const buf_data = fs.readFileSync("read.txt");
-
-const org_data = buf_data.toString();
-
-console.log(org_data);
+fs.readFile("read.txt" , "utf-8" , (err , data) => {
+    console.log(data);
+})
