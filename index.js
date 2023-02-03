@@ -1,13 +1,11 @@
-const fs = require("fs");
+const os = require("os");
 
-//difference between synchronous and  Asynchronous 
+console.log(os.arch());
+console.log(os.hostname());
 
-const data = fs.readFileSync("read.txt" , "utf-8");
-console.log(data);
+const freeMemory = os.freemem();
+console.log(`${freeMemory / 1024 /1024/1024}`);
 
-console.log("after the data");
-//if use asynchrounous then we err callback funt  so we use fun(err) it is run after data we first pass 
+const totalMemory = os.totalmem();
+console.log(`${totalMemory / 1024 /1024/1024}`)
 
-fs.readFile("read.txt" , "utf-8" , (err , data) => {
-    console.log(data);
-})
