@@ -1,17 +1,11 @@
-const fs = require("fs");
+const os = require("os");
 
-//creating new file 
+console.log(os.arch());
+console.log(os.hostname());
 
-fs.writeFileSync("read.txt" , "Hi niraj !");
+const freeMemory = os.freemem();
+console.log(`${freeMemory / 1024 /1024/1024}`);
 
-//if we write something in read text file then we use this module
+const totalMemory = os.totalmem();
+console.log(`${totalMemory / 1024 /1024/1024}`)
 
-fs.appendFileSync("read.txt" , "  How are you");
-
-// if we read file then we do first we declare a variable and convert to into string if we write string 
-
-const buf_data = fs.readFileSync("read.txt");
-
-const org_data = buf_data.toString();
-
-console.log(org_data);
